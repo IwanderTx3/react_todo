@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import {completedTask} from './components/completedTasks'
-import {pendingTask} from './components/pendingTasks'
+import {CompletedTask} from './components/CompletedTasks'
+import {PendingTask} from './components/PendingTasks'
 
 
 import './App.css';
@@ -12,6 +12,7 @@ class App extends Component {
     super(props)
 
     this.state = {
+      currentTaskName : '',
       pending : [],
       completed : []
     }
@@ -20,9 +21,22 @@ class App extends Component {
 
   }
 
-  handleAddTaskClick = (() => {
+  newtask = ((e) => {
 
-    let newTask = { title : this.state.currentTaskName }
+    // never do this. Always assign a brand new object to the state
+    //this.state.currentTripName = e.target.value
+    this.setState({
+      currentTaskName : e.target.value
+    })
+
+  })
+
+  addTask = (() => {
+
+    let newTask = {
+      title : this.state.currentTaskName,
+      completed: false
+    }
 
     // ...this.state
 
@@ -33,21 +47,17 @@ class App extends Component {
 
   })
 
-
-  handleTaskBoxChange = ((e) => {
-
-    // never do this. Always assign a brand new object to the state
-    //this.state.currentTripName = e.target.value
-
-    this.setState({
-      currentTaskName : e.target.value
-    })
-
-  })
-
   render() {
     return (
       <div className="App">
+
+        <input onChange={this.newtask} type="text" />
+        <button onClick={this.addTask}>Add Task</button>
+        <h1>Pending</h1>
+        <PendingTask pending = {this.state.pending} />
+        <h1>Completed</h1>
+        <CompletedTask completed = {this.state.completed} />
+
 
         <div className ='NewItemBox'>
         <div className='NewTask'><input className='NewTaskInput' type="text" id="newTask" placeholder="Enter New Task" /><button id='addTask'>Create Task</button></div>
@@ -74,6 +84,7 @@ class App extends Component {
             </li>
           </ul>
         </div>
+
 
       </div>
     );

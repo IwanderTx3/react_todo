@@ -1,8 +1,9 @@
 
 import React, {Component} from 'react'
+import {CompletedToggle} from './CompletedToggle'
 
 
-export class completedTask extends Component {
+export class CompletedTask extends Component {
 
   render() {
 
@@ -12,7 +13,8 @@ export class completedTask extends Component {
       return (
         <li key={index}>
           {completed.title}
-        </li>
+          <CompletedToggle/>
+      </li>
       )
     })
 

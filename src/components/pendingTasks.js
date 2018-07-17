@@ -1,8 +1,8 @@
 
 import React, {Component} from 'react'
+import {CompletedToggle} from './CompletedToggle'
 
-
-export class pendingTask extends Component {
+export class PendingTask extends Component {
 
   render() {
 
@@ -11,7 +11,8 @@ export class pendingTask extends Component {
     let pendingTasks = pending.map((task,index) => {
       return (
         <li key={index}>
-          {pending.title}
+          {pending[index].title}
+          <CompletedToggle/>
         </li>
       )
     })
