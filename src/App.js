@@ -10,22 +10,43 @@ class App extends Component {
     super(props)
 
     this.state = {
-      currentTask = "",
       pending : [],
       completed : []
     }
+    // bindings
+  //  this.handleTripTextBoxChange = this.handleTripTextBoxChange.bind(this)
 
   }
+
+  handleAddTaskClick = (() => {
+
+    let newTask = { title : this.state.currentTaskName }
+
+    // ...this.state
+
+    this.setState({
+      ...this.state,
+      pending : this.state.pending.concat(newTask)
+    })
+
+  })
+
+
+  handleTaskBoxChange = ((e) => {
+
+    // never do this. Always assign a brand new object to the state
+    //this.state.currentTripName = e.target.value
+
+    this.setState({
+      currentTaskName : e.target.value
+    })
+
+  })
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        working!
       </div>
     );
   }
