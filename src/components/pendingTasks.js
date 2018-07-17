@@ -5,7 +5,7 @@ import {CompletedToggle} from './CompletedToggle'
 export class PendingTask extends Component {
 
   render() {
-
+ 
     let pending = this.props.pending
 
     let pendingTasks = pending.map((task,index) => {
@@ -18,7 +18,7 @@ export class PendingTask extends Component {
     })
 
     return (
-      <ul>
+      <ul className='taskList'>
         {pendingTasks}
       </ul>
     )

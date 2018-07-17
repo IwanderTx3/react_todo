@@ -11,15 +11,15 @@ export class CompletedTask extends Component {
 
     let completedTasks = completed.map((task,index) => {
       return (
-        <li key={index}>
-          {completed.title}
+        <li className='taskList' key={index}>
+          <div className='tasktitle'>{completed.title}</div>
           <CompletedToggle/>
       </li>
       )
     })
 
     return (
-      <ul>
+      <ul className='taskList'>
         {completedTasks}
       </ul>
     )

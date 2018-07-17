@@ -11,7 +11,9 @@ export class CompletedToggle extends Component {
 
   render() {
       return (
+        <div className='complete'>
         <button onClick={this.completeToggle}>toggle Completed</button>
+        </div>
       )
     }
 
