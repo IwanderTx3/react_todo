@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
+import {completedTask} from './components/completedTasks'
+import {pendingTask} from './components/pendingTasks'
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor (props) {
+    // initializes the parent class
+    super(props)
+
+    this.state = {
+      currentTask = "",
+      pending : [],
+      completed : []
+    }
+
+  }
   render() {
     return (
       <div className="App">
